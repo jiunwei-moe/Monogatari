@@ -4,7 +4,7 @@
  * =======================================
  **/
 
-"use strict";
+
 
 /* global require */
 /* global process */

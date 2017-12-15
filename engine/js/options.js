@@ -7,7 +7,7 @@
  * =======================================
  **/
 
-"use strict";
+
 /* exported engine */
 /* exported storage */
 /* exported settings */

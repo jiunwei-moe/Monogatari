@@ -1,4 +1,7 @@
 {
+	"parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
 		"dot-notation": [
 			2

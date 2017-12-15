@@ -1,4 +1,4 @@
-"use strict";
+
 
 // The name of your game, no spaces or special characters.
 var name = "Monogatari";
@@ -109,8 +109,8 @@ self.addEventListener("fetch", function (event) {
 	event.respondWith(
 		caches.match(event.request).then(function (cached) {
 			var networked = fetch(event.request)
-							.then(fetchedFromNetwork, unableToResolve)
-							.catch(unableToResolve);
+				.then(fetchedFromNetwork, unableToResolve)
+				.catch(unableToResolve);
 			return cached || networked;
 
 			function fetchedFromNetwork (response) {

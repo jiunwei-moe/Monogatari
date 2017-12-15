@@ -1,21 +1,7 @@
-"use strict";
 
-import { storage as _storage } from '../../engine/js/options.js';
+
+import { storage as _storage } from "../../engine/js/options.js";
 var storage = _storage;
-
-/* exported messages */
-/* exported notifications */
-/* exported particles */
-/* exported music */
-/* exported voice */
-/* exported sound */
-/* exported videos */
-/* exported images */
-/* exported scenes */
-/* exported characters */
-/* exported script */
-
-/* global storage */
 
 // Define the messages used in the game.
 export var messages = {

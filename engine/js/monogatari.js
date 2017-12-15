@@ -22,7 +22,7 @@
  * 18) Statements Functioning
  * ====================================
  **/
-"use strict";
+
 
 /**
  * ======================
@@ -33,15 +33,16 @@
 /* global require */
 /* global particlesJS */
 
-import 'kayros/dist/kayros.css';
-import 'font-awesome/css/font-awesome.css';
-import '../style/monogatari.css';
+import "kayros/dist/kayros.css";
+import "font-awesome/css/font-awesome.css";
+import "../style/monogatari.css";
 
-import Typed from 'typed.js';
-import { $_, $_ready, Storage } from 'artemis/dist/artemis';
-import '../service-worker.js';
-import { engine, settings as _settings, storage as _storage } from './options';
-import { strings as _strings } from './strings';
+import jQuery from "jquery";
+import Typed from "typed.js";
+import { $_, $_ready, Storage } from "artemis/dist/artemis";
+import "../service-worker.js";
+import { engine, settings as _settings, storage as _storage } from "./options";
+import { strings as _strings } from "./strings";
 import {
 	messages,
 	notifications,
@@ -54,11 +55,13 @@ import {
 	scenes,
 	characters,
 	script
-} from '../../app/js/script';
+} from "../../app/js/script";
 
 var settings = _settings;
 var strings = _strings;
 var storage = _storage;
+
+window.$ = window.jQuery = jQuery;
 
 let label;
 let game;
@@ -261,14 +264,14 @@ $_ready(function () {
 
 	// Set the electron quit handler.
 	if (isElectron()) {
-		// const remote = require("electron").remote;
+		const remote = require("electron").remote;
 		const win = remote.getCurrentWindow();
 
-		try {
-			// window.$ = window.jQuery = require("./js/jquery.min.js");
-		} catch (e) {
-			console.warn ("jQuery could not be loaded.");
-		}
+		// try {
+		// 	window.$ = window.jQuery = require("./js/jquery.min.js");
+		// } catch (e) {
+		// 	console.warn ("jQuery could not be loaded.");
+		// }
 
 		$_("[data-action='set-resolution']").value(settings.Resolution);
 
@@ -319,7 +322,7 @@ $_ready(function () {
 
 	function changeWindowResolution (resolution) {
 		if (isElectron()) {
-			// const remote = require("electron").remote;
+			const remote = require("electron").remote;
 			const win = remote.getCurrentWindow();
 			const {width, height} = remote.screen.getPrimaryDisplay().workAreaSize;
 			if (resolution) {
@@ -1102,11 +1105,11 @@ $_ready(function () {
 				|| (
 					!$_("[data-ui='text']").isVisible()
 					&& $_("[data-ui='centered']").isVisible()
-					)
 				)
+			)
 			&& !$_("[data-component='video']").isVisible()
 			&& !block
-			) {
+		) {
 			return true;
 		} else {
 			return false;
@@ -1426,7 +1429,7 @@ $_ready(function () {
 
 	function analyseStatement (statement) {
 
-		// try {
+		try {
 
 			switch (typeof statement) {
 				case "string":
@@ -1938,9 +1941,10 @@ $_ready(function () {
 					}
 					break;
 			}
-		// } catch (e) {
-		// 	console.error("An error ocurred while while trying to analyse the following statement: " + statement + "\n" + e);
-		// 	next();
-		// }
+
+		} catch (e) {
+			console.error("An error ocurred while while trying to analyse the following statement: " + statement + "\n" + e);
+			next();
+		}
 	}
 });
