@@ -8,7 +8,7 @@
 
 /* exported strings */
 
-var strings = {
+export var strings = {
 
 	"English": {
 		"AdvanceHelp": "To advance through the game, press the space key or click.",

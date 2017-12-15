@@ -12,7 +12,7 @@
 /* exported storage */
 /* exported settings */
 
-var engine = {
+export var engine = {
 
 	// Initial Label *
 	"Label": "Start",
@@ -63,7 +63,7 @@ var engine = {
 };
 
 // Initial Settings
-var settings = {
+export var settings = {
 
 	// Initial Language for Multilanguage Games or for the Default GUI Language.
 	"Language": "English",
@@ -87,7 +87,7 @@ var settings = {
 };
 
 // Persistent Storage Variable
-var storage = {
+export var storage = {
 	player: {
 		name: ""
 	}

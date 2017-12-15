@@ -30,26 +30,35 @@
  * ======================
  **/
 
-/* global $_ */
-/* global $_ready */
-/* global characters */
-/* global engine */
-/* global images */
-/* global messages */
-/* global music */
-/* global notifications */
-/* global particles */
 /* global require */
 /* global particlesJS */
-/* global Typed */
-/* global scenes */
-/* global script */
-/* global settings */
-/* global sound */
-/* global storage */
-/* global strings */
-/* global videos */
-/* global voice */
+
+import 'kayros/dist/kayros.css';
+import 'font-awesome/css/font-awesome.css';
+import '../style/monogatari.css';
+
+import Typed from 'typed.js';
+import { $_, $_ready, Storage } from 'artemis/dist/artemis';
+import '../service-worker.js';
+import { engine, settings as _settings, storage as _storage } from './options';
+import { strings as _strings } from './strings';
+import {
+	messages,
+	notifications,
+	particles,
+	music,
+	voice,
+	sound,
+	videos,
+	images,
+	scenes,
+	characters,
+	script
+} from '../../app/js/script';
+
+var settings = _settings;
+var strings = _strings;
+var storage = _storage;
 
 let label;
 let game;
@@ -252,11 +261,11 @@ $_ready(function () {
 
 	// Set the electron quit handler.
 	if (isElectron()) {
-		const remote = require("electron").remote;
+		// const remote = require("electron").remote;
 		const win = remote.getCurrentWindow();
 
 		try {
-			window.$ = window.jQuery = require("./js/jquery.min.js");
+			// window.$ = window.jQuery = require("./js/jquery.min.js");
 		} catch (e) {
 			console.warn ("jQuery could not be loaded.");
 		}
@@ -310,7 +319,7 @@ $_ready(function () {
 
 	function changeWindowResolution (resolution) {
 		if (isElectron()) {
-			const remote = require("electron").remote;
+			// const remote = require("electron").remote;
 			const win = remote.getCurrentWindow();
 			const {width, height} = remote.screen.getPrimaryDisplay().workAreaSize;
 			if (resolution) {
@@ -1417,7 +1426,7 @@ $_ready(function () {
 
 	function analyseStatement (statement) {
 
-		try {
+		// try {
 
 			switch (typeof statement) {
 				case "string":
@@ -1929,9 +1938,9 @@ $_ready(function () {
 					}
 					break;
 			}
-		} catch (e) {
-			console.error("An error ocurred while while trying to analyse the following statement: " + statement + "\n" + e);
-			next();
-		}
+		// } catch (e) {
+		// 	console.error("An error ocurred while while trying to analyse the following statement: " + statement + "\n" + e);
+		// 	next();
+		// }
 	}
 });

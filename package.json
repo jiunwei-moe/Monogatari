@@ -14,6 +14,10 @@
   },
   "homepage": "https://monogatari.io",
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
+    "exports-loader": "^0.6.4",
+    "file-loader": "^1.1.5",
     "gulp": "^3.9.1",
     "gulp-atom-electron": "^1.7.1",
     "gulp-cssnano": "^2.1.2",
@@ -22,8 +26,21 @@
     "gulp-imagemin": "^3.0.2",
     "gulp-jsbeautifier": "^2.0.3",
     "gulp-zip": "^3.2.0",
+    "html-webpack-plugin": "^2.30.1",
     "run-sequence": "^1.2.2",
+    "style-loader": "^0.19.1",
     "stylelint": "^7.12.0",
-    "stylelint-config-standard": "^16.0.0"
+    "stylelint-config-standard": "^16.0.0",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "artemis": "github:AegisFramework/Artemis",
+    "csshake": "^1.5.2",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "kayros": "github:AegisFramework/Kayros",
+    "particles.js": "^2.0.0",
+    "typed.js": "^2.0.6"
   }
 }

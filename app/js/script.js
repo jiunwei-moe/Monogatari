@@ -1,5 +1,8 @@
 "use strict";
 
+import { storage as _storage } from '../../engine/js/options.js';
+var storage = _storage;
+
 /* exported messages */
 /* exported notifications */
 /* exported particles */
@@ -15,7 +18,7 @@
 /* global storage */
 
 // Define the messages used in the game.
-var messages = {
+export var messages = {
 	"Help": {
 		"Title": "Help",
 		"Subtitle": "Some useful Links",
@@ -24,7 +27,7 @@ var messages = {
 };
 
 // Define the notifications used in the game
-var notifications = {
+export var notifications = {
 	"Welcome": {
 		title: "Welcome",
 		body: "This is the Monogatari VN Engine",
@@ -33,49 +36,49 @@ var notifications = {
 };
 
 // Define the Particles JS Configurations used in the game
-var particles = {
+export var particles = {
 
 };
 
 // Define the music used in the game.
-var music = {
+export var music = {
 
 };
 
 // Define the voice files used in the game.
-var voice = {
+export var voice = {
 
 };
 
 // Define the sounds used in the game.
-var sound = {
+export var sound = {
 
 };
 
 // Define the videos used in the game.
-var videos = {
+export var videos = {
 
 };
 
 // Define the images used in the game.
-var images = {
+export var images = {
 
 };
 
 // Define the backgrounds for each scene.
-var scenes = {
+export var scenes = {
 
 };
 
 // Define the Characters
-var characters = {
+export var characters = {
 	"h": {
 		"Name": "Hikaru",
 		"Color": "#5bcaff"
 	}
 };
 
-var script = {
+export var script = {
 	// The game starts here.
 	"Start": [
 		"notify Welcome",
