@@ -87,3 +87,15 @@ export var storage = {
 		name: ""
 	}
 };
+
+export function setEngine(newEngine) {
+	engine = newEngine;
+}
+
+export function setSettings(newSettings) {
+	settings = newSettings;
+}
+
+export function setStorage(newStorage) {
+	storage = newStorage;
+}

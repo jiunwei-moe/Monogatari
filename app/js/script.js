@@ -1,5 +1,4 @@
-import { storage as _storage } from "../../engine/js/options.js";
-var storage = _storage;
+import { storage, setStorage } from "../../engine/js/options.js";
 
 // Define the messages used in the game.
 export var messages = {

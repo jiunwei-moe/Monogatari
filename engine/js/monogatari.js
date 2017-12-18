@@ -42,7 +42,7 @@ import particlesJS from "particles.js";
 import Typed from "typed.js";
 import { $_, $_ready, Storage } from "artemis/dist/artemis";
 import { strings } from "./strings";
-import { engine as _engine, settings as _settings, storage as _storage } from "./options";
+import { engine, settings, storage, setEngine, setSettings, setStorage } from "./options";
 import {
 	messages,
 	notifications,
@@ -57,10 +57,6 @@ import {
 	script
 } from "../../app/js/script";
 import "../service-worker.js";
-
-var engine = _engine;
-var settings = _settings;
-var storage = _storage;
 
 window.$ = window.jQuery = jQuery;
 
@@ -157,7 +153,7 @@ $_ready(function () {
 	if (local_settings === null || local_settings == "") {
 		Storage.set("Settings", JSON.stringify(settings));
 	} else {
-		settings = Object.assign({}, settings, JSON.parse(local_settings));
+		setSettings(Object.assign({}, settings, JSON.parse(local_settings)));
 	}
 
 	fixOptions ();
@@ -498,9 +494,9 @@ $_ready(function () {
 		$_("section").hide();
 		$_("#game").show();
 		const data = JSON.parse(Storage.get(slot));
-		engine = Object.assign({}, engine, data.Engine);
+		setEngine(Object.assign({}, engine, data.Engine));
 		fixEngine ();
-		storage = Object.assign({}, JSON.parse(storageStructure), data.Storage);
+		setStorage(Object.assign({}, JSON.parse(storageStructure), data.Storage));
 
 		label = game[data.Label];
 
@@ -1129,7 +1125,7 @@ $_ready(function () {
 		$_("[data-action='auto-play']").addClass("fa-play-circle");
 
 		// Reset Storage
-		storage = JSON.parse(storageStructure);
+		setStorage(JSON.parse(storageStructure));
 
 		// Reset Conditions
 		engine.Label = "Start";
