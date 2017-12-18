@@ -4,11 +4,7 @@
  * =======================================
  **/
 
-
-
-/* global require */
-/* global process */
-/* global __dirname */
+/* eslint-env node */
 
 const {app, BrowserWindow} = require("electron");
 const path = require("path");

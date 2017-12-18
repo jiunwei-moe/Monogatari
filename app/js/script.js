@@ -1,5 +1,3 @@
-
-
 import { storage as _storage } from "../../engine/js/options.js";
 var storage = _storage;
 

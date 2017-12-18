@@ -6,9 +6,16 @@ const imagemin = require("gulp-imagemin");
 const packageJson = require("./package.json");
 const zip = require("gulp-zip");
 const eslint = require("gulp-eslint");
+const stylelint = require('gulp-stylelint');
+const htmlhint = require('gulp-htmlhint');
+const webpack = require('webpack');
+const webpackConfig = require("./webpack.config.js");
+const gulpWebpack = require('webpack-stream');
+const webpackDevServer = require('webpack-dev-server');
 
 gulp.task("default", () => {
 	// place code for your default task here
+	gulp.start("build");
 });
 
 gulp.task("prettify", () => {
@@ -55,10 +62,44 @@ gulp.task("release", () => {
 		.pipe(gulp.dest("dist"));
 });
 
-gulp.task("lint", () => {
+gulp.task("lint:js", () => {
 	return gulp.src(["**/*.js", "!node_modules/**", "!dist/**"])
 		.pipe(eslint({ fix: true }))
 		.pipe(eslint.format())
-		.pipe(eslint.failAfterError())
-		.pipe(gulp.dest("./"));
+		.pipe(eslint.failAfterError());
+});
+
+gulp.task("lint:css", () => {
+	return gulp.src(["**/*.css", "!node_modules/**", "!dist/**"])
+		.pipe(stylelint({
+			failAfterError: true,
+			reporters: [{
+				formatter: 'string',
+				console: true
+			}]
+		}));
+});
+
+gulp.task("lint:html", () => {
+	return gulp.src(["**/*.html", "!node_modules/**", "!dist/**"])
+		.pipe(htmlhint())
+		.pipe(htmlhint.reporter())
+		.pipe(htmlhint.failAfterError());
+});
+
+gulp.task("lint", ["lint:js", "lint:css", "lint:html"]);
+
+gulp.task("build", () => {
+	return gulp.src("./engine/js/monogatari.js")
+		.pipe(gulpWebpack(webpackConfig))
+		.pipe(gulp.dest("dist"));
+});
+
+gulp.task("serve", () => {
+	new webpackDevServer(webpack(webpackConfig), {
+		contentBase: './dist',
+		stats: {
+            colors: true
+        }
+	}).listen(8080, "localhost");
 });

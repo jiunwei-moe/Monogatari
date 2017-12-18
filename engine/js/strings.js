@@ -6,8 +6,6 @@
 
 "use strict";
 
-/* exported strings */
-
 export var strings = {
 
 	"English": {

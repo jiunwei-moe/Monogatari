@@ -7,11 +7,6 @@
  * =======================================
  **/
 
-
-/* exported engine */
-/* exported storage */
-/* exported settings */
-
 export var engine = {
 
 	// Initial Label *

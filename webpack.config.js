@@ -9,6 +9,10 @@ module.exports = {
 	entry: {
 		app: "./engine/js/monogatari.js"
 	},
+	devtool: "source-map",
+	devServer: {
+		contentBase: './dist'
+	},
 	plugins: [
 		new CleanWebpackPlugin(["dist"]),
 		new HtmlWebpackPlugin({
