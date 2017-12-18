@@ -31,18 +31,18 @@
  **/
 
 /* global require */
-/* global particlesJS */
 
-import "kayros/dist/kayros.css";
+import "animate.css/animate.css";
 import "font-awesome/css/font-awesome.css";
+import "kayros/dist/kayros.css";
 import "../style/monogatari.css";
 
 import jQuery from "jquery";
+import particlesJS from "particles.js";
 import Typed from "typed.js";
 import { $_, $_ready, Storage } from "artemis/dist/artemis";
-import "../service-worker.js";
-import { engine, settings as _settings, storage as _storage } from "./options";
-import { strings as _strings } from "./strings";
+import { strings } from "./strings";
+import { engine as _engine, settings as _settings, storage as _storage } from "./options";
 import {
 	messages,
 	notifications,
@@ -56,9 +56,10 @@ import {
 	characters,
 	script
 } from "../../app/js/script";
+import "../service-worker.js";
 
+var engine = _engine;
 var settings = _settings;
-var strings = _strings;
 var storage = _storage;
 
 window.$ = window.jQuery = jQuery;
